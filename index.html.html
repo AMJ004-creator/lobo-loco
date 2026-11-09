@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOBO LOCO SPORT</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --blue:#087dff;
+ --orange:#ff7518;
+ --lime:#c6ff00;
+ --black:#080b0e;
+ --panel:#111820;
+ --white:#f5f6f7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Barlow Condensed',sans-serif;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer}
+
+header{height:76px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:#080b0ef5;border-bottom:1px solid #ffffff20;position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:10px;color:white;text-decoration:none}
+.brand-logo{width:100px;height:auto;object-fit:contain}
+.brand-name{font-family:'Anton';font-size:25px;line-height:.9}
+.brand-name span{display:block;color:var(--lime);font-size:16px;margin-top:5px}
+nav{display:flex;gap:30px}
+nav a{color:#ddd;text-decoration:none;font-size:19px;font-weight:700}
+nav a:hover{color:var(--lime)}
+.cart-trigger{background:var(--lime);border:0;border-radius:5px;padding:12px 19px;font-weight:900;font-size:17px}
+
+.hero{min-height:650px;padding:75px 6%;display:grid;grid-template-columns:.85fr 1.5fr;align-items:center;gap:20px;background:radial-gradient(ellipse at 65% 50%,#18304a 0%,transparent 50%),linear-gradient(110deg,#080b0e,#111923 65%,#080b0e)}
+.hero-content{z-index:2}
+.eyebrow{color:var(--lime);font-weight:900;letter-spacing:5px;font-size:16px}
+.hero h1{font-family:'Anton';font-size:clamp(75px,10vw,135px);line-height:.83;margin:24px 0;font-style:italic}
+.hero h1 span{color:var(--lime)}
+.hero p{font-size:27px;font-style:italic;color:#ddd;line-height:1.4;margin-bottom:30px}
+.cta{display:inline-block;background:var(--lime);color:#080b0e;padding:17px 30px;font-size:20px;font-weight:900;text-decoration:none;border-radius:5px}
+.hero-products{display:flex;justify-content:center;align-items:center;gap:25px;perspective:1000px}
+
+/* LATTINE */
+.can{--accent:var(--blue);width:160px;height:375px;position:relative;border-radius:23px 23px 19px 19px;overflow:hidden;transform:rotate(-4deg);flex-shrink:0;border:1px solid #8ab9e4;box-shadow:inset 8px 0 12px #ffffff35,inset -10px 0 15px #000b,0 25px 45px #000b;transition:.4s;background:linear-gradient(90deg,#06336f,#168aff 25%,#0752b8 50%,#032b65 75%,#147fff)}
+.can:hover{transform:rotate(0deg) translateY(-10px) scale(1.04)}
+.can.blue-can{--accent:#168aff;background:radial-gradient(ellipse at 25% 15%,#ffffffa8,transparent 13%),linear-gradient(90deg,#06336f,#168aff 18%,#0752b8 38%,#032b65 62%,#147fff 82%,#052653);border-color:#75baff}
+.can.orange-can{--accent:#ff8a24;background:radial-gradient(ellipse at 25% 15%,#ffffffa8,transparent 13%),linear-gradient(90deg,#7d2e08,#ff9a37 18%,#d95a0b 38%,#8d3308 62%,#f77c1d 82%,#692306);border-color:#ffc080}
+.can.black-can{--accent:#168aff;background:radial-gradient(ellipse at 25% 15%,#ffffff80,transparent 13%),linear-gradient(90deg,#05080e,#344252 18%,#111923 38%,#03060b 62%,#253344 82%,#05080e);border-color:#71869c}
+.can:before{content:"";position:absolute;top:0;left:5%;width:90%;height:13px;border-radius:50%;background:linear-gradient(#fff,#626a70,#b8c0c5);box-shadow:0 3px 4px #000;z-index:3}
+.can:after{content:"";position:absolute;top:13px;bottom:0;left:0;width:100%;pointer-events:none;background:linear-gradient(110deg,transparent 15%,#ffffff20 30%,transparent 43%,#ffffff15 60%,transparent 75%)}
+.can-content{position:absolute;inset:0;padding:30px 9px 15px;display:flex;flex-direction:column;align-items:center;z-index:2}
+.can-brand{font-family:'Anton';font-size:23px;line-height:.9;text-align:center;color:white;text-shadow:2px 3px 5px #000;letter-spacing:1px}
+.can-sport{color:var(--accent);font-family:'Anton';font-size:14px;margin-top:5px;letter-spacing:2px}
+.can-logo{width:130px;height:auto;object-fit:contain;margin:15px 0 5px}
+.can-flavor{font-family:'Anton';color:var(--accent);font-size:32px;font-style:italic;text-shadow:2px 3px 5px #000}
+.can-detail{text-align:center;font-size:11px;font-weight:800;line-height:1.3;margin-top:8px;color:white;text-shadow:1px 2px 3px #000}
+.can-caffeine{font-size:10px;margin-top:auto;font-weight:800;text-shadow:1px 2px 3px #000}
+.can-small{transform:scale(.83) rotate(5deg);margin-top:25px}
+.can-small:nth-child(2){transform:scale(1) rotate(0deg);z-index:2}
+.can-small:nth-child(3){transform:scale(.83) rotate(-5deg)}
+
+.section{padding:90px 7%}
+.section-heading{font-family:'Anton';font-size:55px;text-align:center;font-style:italic;margin-bottom:12px}
+.section-sub{text-align:center;color:#aaa;font-size:20px;margin-bottom:50px}
+.line{width:70px;height:4px;background:var(--lime);margin:15px auto 25px}
+
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.product-card{background:linear-gradient(145deg,#17212b,#0d1117);border:1px solid #ffffff1b;border-radius:12px;padding:35px 20px;text-align:center;transition:.3s;overflow:hidden}
+.product-card:hover{border-color:var(--lime);transform:translateY(-8px)}
+.product-can{display:flex;justify-content:center;height:290px;align-items:center;margin-bottom:20px}
+.product-can .can{transform:scale(.72)}
+.product-card h3{font-family:'Anton';font-size:33px;letter-spacing:1px}
+.product-card p{color:#aaa;font-size:18px;margin:10px 0}
+.select-button{width:100%;background:transparent;border:1px solid var(--lime);color:var(--lime);padding:13px;font-size:18px;font-weight:800;border-radius:4px}
+.select-button:hover{background:var(--lime);color:#000}
+
+.customizer{background:#101820;border-top:1px solid #ffffff15;border-bottom:1px solid #ffffff15}
+.customizer-inner{max-width:1000px;margin:auto}
+.customizer-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.customizer h3{font-family:'Anton';font-size:30px;margin-bottom:18px}
+.flavors{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.flavor-option{background:#1b2732;color:white;border:1px solid #52606b;border-radius:8px;padding:13px 5px;font-size:15px}
+.flavor-option.selected{border:2px solid var(--lime);background:#2a391b;color:var(--lime)}
+.capsule{display:block;font-size:30px;margin-bottom:8px}
+.format-options{display:flex;gap:10px;margin-top:15px}
+.format{flex:1;background:#1b2732;border:1px solid #46515b;color:white;padding:15px 5px;border-radius:5px;font-size:18px}
+.format.selected{border:2px solid var(--lime);color:var(--lime)}
+.quantity{display:flex;align-items:center;gap:18px;margin-top:22px}
+.quantity button{background:#293640;border:0;color:white;width:37px;height:37px;font-size:23px;border-radius:5px}
+.quantity span{font-size:23px;font-weight:800}
+.add-cart{width:100%;background:var(--lime);color:#080b0e;border:0;padding:18px;margin-top:25px;border-radius:5px;font-weight:900;font-size:20px}
+.add-cart:hover{background:white}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{padding:30px 15px;background:#111820;border:1px solid #ffffff15;border-radius:8px;text-align:center}
+.step-number{background:var(--lime);color:black;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:23px;font-weight:900;margin:0 auto 18px}
+.step h3{font-family:'Anton';font-size:25px;margin-bottom:10px}
+.step p{color:#aaa;font-size:17px}
+
+.benefits{background:#101820;padding:45px 6%;display:grid;grid-template-columns:repeat(5,1fr);gap:15px;text-align:center}
+.benefit{border-right:1px solid #ffffff25;padding:10px}
+.benefit:last-child{border:0}
+.benefit-icon{color:var(--lime);font-size:35px}
+.benefit strong{display:block;font-size:19px;margin-top:10px}
+.benefit small{color:#999;font-size:14px}
+
+footer{padding:55px 7%;text-align:center;background:#06080b;border-top:1px solid #ffffff20}
+footer .brand{justify-content:center;margin-bottom:25px}
+footer p{color:#888;font-size:16px}
+
+.overlay{position:fixed;inset:0;background:#000b;z-index:30;display:none}
+.overlay.active{display:block}
+.cart{position:fixed;top:0;right:-460px;width:430px;max-width:100%;height:100vh;background:#101820;z-index:31;padding:25px;transition:.35s;overflow-y:auto;box-shadow:-15px 0 40px #0008}
+.cart.active{right:0}
+.cart-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid #ffffff20}
+.cart-header h2{font-family:'Anton';font-size:30px}
+.close-cart{background:none;border:0;color:white;font-size:32px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid #ffffff20;gap:10px}
+.cart-item strong{font-size:18px}
+.cart-item small{color:#aaa;font-size:15px}
+.cart-item-controls{display:flex;gap:9px;align-items:center;margin-top:10px}
+.cart-item-controls button{background:var(--lime);border:0;width:25px;height:25px;border-radius:4px;font-weight:900}
+.checkout{width:100%;background:var(--lime);border:0;padding:17px;margin-top:25px;font-weight:900;font-size:19px}
+.empty{color:#999;text-align:center;padding:50px 10px;font-size:20px}
+
+@media(max-width:900px){
+ nav{gap:12px}nav a{font-size:16px}
+ .hero{grid-template-columns:1fr;text-align:center}
+ .hero-products{margin-top:40px}
+ .products{grid-template-columns:1fr 1fr}
+ .benefits{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+ header{padding:0 4%}nav{display:none}
+ .brand-name{font-size:20px}
+ .brand-logo{width:75px}
+ .hero{padding:60px 5%}
+ .hero-products{gap:0;transform:scale(.83)}
+ .can{width:125px;height:310px}
+ .can-logo{width:100px}
+ .can-brand{font-size:19px}
+ .can-flavor{font-size:24px}
+ .section{padding:65px 5%}
+ .section-heading{font-size:42px}
+ .products{grid-template-columns:1fr}
+ .customizer-grid{grid-template-columns:1fr}
+ .flavors{gap:5px}
+ .flavor-option{font-size:12px}
+ .steps{grid-template-columns:1fr 1fr}
+ .benefits{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <a href="#home" class="brand">
+  <img class="brand-logo original-logo" alt="LOBO LOCO">
+  <div class="brand-name">LOBO LOCO<span>SPORT</span></div>
+ </a>
+ <nav>
+  <a href="#home">Inicio</a>
+  <a href="#products">Producto</a>
+  <a href="#how">Cómo funciona</a>
+  <a href="#shop">Tienda</a>
+  <a href="#about">Nosotros</a>
+ </nav>
+ <button class="cart-trigger" onclick="openCart()">🛒 <span id="cart-count">0</span></button>
+</header>
+
+<section class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow">ENERGÍA LIMPIA · SIN LÍMITES</div>
+  <h1>LOBO<br>LOCO<br><span>SPORT.</span></h1>
+  <p>Energía limpia, sin límites.<br>Agita la lata, libera al lobo.</p>
+  <a href="#shop" class="cta">DESCUBRE EL PRODUCTO →</a>
+ </div>
+ <div class="hero-products">
+  <div class="can can-small blue-can">
+   <div class="can-content">
+    <div class="can-brand">LOBO LOCO</div><div class="can-sport">SPORT</div>
+    <img class="can-logo original-logo" alt="Logo LOBO LOCO">
+    <div class="can-flavor">LUZ</div>
+    <div class="can-detail">BASE NEUTRA<br>+ CÁPSULA DE SABOR</div>
+    <div class="can-caffeine">200 mg CAFEÍNA</div>
+   </div>
+  </div>
+  <div class="can orange-can">
+   <div class="can-content">
+    <div class="can-brand">LOBO LOCO</div><div class="can-sport">SPORT</div>
+    <img class="can-logo original-logo" alt="Logo LOBO LOCO">
+    <div class="can-flavor">CAZA</div>
+    <div class="can-detail">BASE NEUTRA<br>+ CÁPSULA DE SABOR</div>
+    <div class="can-caffeine">200 mg CAFEÍNA</div>
+   </div>
+  </div>
+  <div class="can can-small black-can">
+   <div class="can-content">
+    <div class="can-brand">LOBO LOCO</div><div class="can-sport">SPORT</div>
+    <img class="can-logo original-logo" alt="Logo LOBO LOCO">
+    <div class="can-flavor">NOCHE</div>
+    <div class="can-detail">BASE NEUTRA<br>+ CÁPSULA DE SABOR</div>
+    <div class="can-caffeine">200 mg CAFEÍNA</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="products">
+ <h2 class="section-heading">THREE IDENTITIES. ONE WOLF.</h2>
+ <div class="line"></div>
+ <p class="section-sub">Descubre las tres versiones de LOBO LOCO SPORT.</p>
+ <div class="products">
+  <article class="product-card">
+   <div class="product-can"><div class="can blue-can"><div class="can-content">
+    <div class="can-brand">LOBO LOCO</div><div class="can-sport">SPORT</div>
+    <img class="can-logo original-logo" alt="Logo LOBO LOCO">
+    <div class="can-flavor">LUZ</div><div class="can-detail">BASE NEUTRA<br>+ CÁPSULA DE SABOR</div><div class="can-caffeine">200 mg CAFEÍNA</div>
+   </div></div></div>
+   <h3>LOBO LOCO LUZ</h3><p>Azul eléctrico. Energía y claridad.</p>
+   <button class="select-button" onclick="chooseCan('LUZ')">ELEGIR PRODUCTO</button>
+  </article>
+  <article class="product-card">
+   <div class="product-can"><div class="can orange-can"><div class="can-content">
+    <div class="can-brand">LOBO LOCO</div><div class="can-sport">SPORT</div>
+    <img class="can-logo original-logo" alt="Logo LOBO LOCO">
+    <div class="can-flavor">CAZA</div><div class="can-detail">BASE NEUTRA<br>+ CÁPSULA DE SABOR</div><div class="can-caffeine">200 mg CAFEÍNA</div>
+   </div></div></div>
+   <h3>LOBO LOCO CAZA</h3><p>Naranja fuego. Fuerza y disciplina.</p>
+   <button class="select-button" onclick="chooseCan('CAZA')">ELEGIR PRODUCTO</button>
+  </article>
+  <article class="product-card">
+   <div class="product-can"><div class="can black-can"><div class="can-content">
+    <div class="can-brand">LOBO LOCO</div><div class="can-sport">SPORT</div>
+    <img class="can-logo original-logo" alt="Logo LOBO LOCO">
+    <div class="can-flavor">NOCHE</div><div class="can-detail">BASE NEUTRA<br>+ CÁPSULA DE SABOR</div><div class="can-caffeine">200 mg CAFEÍNA</div>
+   </div></div></div>
+   <h3>LOBO LOCO NOCHE</h3><p>Negro intenso. Actitud y carácter.</p>
+   <button class="select-button" onclick="chooseCan('NOCHE')">ELEGIR PRODUCTO</button>
+  </article>
+ </div>
+</section>
+
+<section class="section customizer" id="shop">
+ <div class="customizer-inner">
+  <h2 class="section-heading">CREATE YOUR LOBO.</h2><div class="line"></div>
+  <p class="section-sub">Una base. Cinco sabores. Tú decides.</p>
+  <div class="customizer-grid">
+   <div>
+    <h3>1. ELIGE TU CÁPSULA DE SABOR</h3>
+    <div class="flavors">
+     <button class="flavor-option selected" onclick="selectFlavor('Frutos rojos',this)"><span class="capsule">🔴</span>Frutos rojos</button>
+     <button class="flavor-option" onclick="selectFlavor('Cítrico',this)"><span class="capsule">🟡</span>Cítrico</button>
+     <button class="flavor-option" onclick="selectFlavor('Blue raspberry',this)"><span class="capsule">🔵</span>Blue raspberry</button>
+     <button class="flavor-option" onclick="selectFlavor('Tropical',this)"><span class="capsule">🟠</span>Tropical</button>
+     <button class="flavor-option" onclick="selectFlavor('Uva',this)"><span class="capsule">🟣</span>Uva</button>
+    </div>
+    <h3 style="margin-top:35px">2. ELIGE EL FORMATO</h3>
+    <div class="format-options">
+     <button class="format selected" onclick="selectFormat(1,this)">1 LATA</button>
+     <button class="format" onclick="selectFormat(6,this)">PACK 6</button>
+     <button class="format" onclick="selectFormat(12,this)">PACK 12</button>
+    </div>
+    <h3 style="margin-top:30px">3. CANTIDAD</h3>
+    <div class="quantity">
+     <button onclick="changeQuantity(-1)">−</button>
+     <span id="quantity">1</span>
+     <button onclick="changeQuantity(1)">+</button>
+    </div>
+    <button class="add-cart" onclick="addToCart()">🛒 AÑADIR AL CARRITO</button>
+   </div>
+   <div style="text-align:center">
+    <div class="can orange-can" id="preview-can" style="margin:auto;transform:rotate(-5deg) scale(1.05)">
+     <div class="can-content">
+      <div class="can-brand">LOBO LOCO</div><div class="can-sport">SPORT</div>
+      <img class="can-logo original-logo" alt="Logo LOBO LOCO">
+      <div class="can-flavor">CAZA</div>
+      <div class="can-detail">BASE NEUTRA<br>+ CÁPSULA DE SABOR</div>
+      <div class="can-caffeine">200 mg CAFEÍNA</div>
+     </div>
+    </div>
+    <p style="color:#aaa;margin-top:25px;font-size:19px">La misma fórmula. El sabor que tú eliges.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="how">
+ <h2 class="section-heading">¿CÓMO FUNCIONA?</h2><div class="line"></div>
+ <p class="section-sub">Cuatro pasos para liberar al lobo.</p>
+ <div class="steps">
+  <div class="step"><div class="step-number">1</div><h3>ABRE</h3><p>Destapa tu Lobo Loco.</p></div>
+  <div class="step"><div class="step-number">2</div><h3>AÑADE</h3><p>Introduce la cápsula de tu sabor favorito.</p></div>
+  <div class="step"><div class="step-number">3</div><h3>AGITA</h3><p>Mezcla y libera todo el sabor.</p></div>
+  <div class="step"><div class="step-number">4</div><h3>LIBERA AL LOBO</h3><p>Energía, sabor y rendimiento en una sola lata.</p></div>
+ </div>
+</section>
+
+<section class="benefits">
+ <div class="benefit"><div class="benefit-icon">⚡</div><strong>200 mg</strong><small>de cafeína</small></div>
+ <div class="benefit"><div class="benefit-icon">🏋</div><strong>Aminoácidos</strong><small>para entrenar</small></div>
+ <div class="benefit"><div class="benefit-icon">💧</div><strong>Sales minerales</strong><small>hidratación y rendimiento</small></div>
+ <div class="benefit"><div class="benefit-icon">◉</div><strong>Sin azúcares añadidos</strong><small>base neutra</small></div>
+ <div class="benefit"><div class="benefit-icon">♻</div><strong>100% reciclada</strong><small>lata de aluminio</small></div>
+</section>
+
+<section class="section" id="about">
+ <h2 class="section-heading">WELCOME TO THE PACK.</h2><div class="line"></div>
+ <p style="text-align:center;max-width:750px;margin:auto;color:#aaa;font-size:22px;line-height:1.6">
+ LOBO LOCO representa la unión entre la naturaleza salvaje, la disciplina y la superación personal.
+ No seguimos los límites: los superamos.<br><br>
+ <strong style="color:var(--lime)">Agita la lata. Libera al lobo.</strong>
+ </p>
+</section>
+
+<footer>
+ <div class="brand" style="justify-content:center;margin-bottom:25px">
+  <img class="brand-logo original-logo" alt="LOBO LOCO">
+  <div class="brand-name">LOBO LOCO<span>SPORT</span></div>
+ </div>
+ <p>© 2026 LOBO LOCO SPORT · ALL RIGHTS RESERVED</p>
+ <p style="margin-top:10px">Energía limpia, sin límites.</p>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="cart" id="cart">
+ <div class="cart-header"><h2>YOUR PACK 🐺</h2><button class="close-cart" onclick="closeCart()">×</button></div>
+ <div id="cart-items"><div class="empty">Tu carrito está vacío.</div></div>
+ <button class="checkout" onclick="checkout()">FINALIZAR COMPRA →</button>
+ <p style="color:#777;text-align:center;margin-top:15px">Checkout demostrativo · Pago no conectado</p>
+</aside>
+
+<script>
+// LOGO ORIGINALE INCORPORATO NEL CODICE
+const LOGO_DATA = "data:image/png;base64,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";
+
+document.querySelectorAll(".original-logo").forEach(img => {
+ img.src = LOGO_DATA;
+});
+
+let selectedFlavor="Frutos rojos";
+let selectedFormat=1;
+let quantity=1;
+let cart=[];
+
+function selectFlavor(flavor,button){
+ selectedFlavor=flavor;
+ document.querySelectorAll(".flavor-option").forEach(b=>b.classList.remove("selected"));
+ button.classList.add("selected");
+}
+
+function selectFormat(format,button){
+ selectedFormat=format;
+ document.querySelectorAll(".format").forEach(b=>b.classList.remove("selected"));
+ button.classList.add("selected");
+}
+
+function changeQuantity(amount){
+ quantity=Math.max(1,Math.min(99,quantity+amount));
+ document.getElementById("quantity").textContent=quantity;
+}
+
+function chooseCan(name){
+ document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+ const preview=document.getElementById("preview-can");
+ preview.classList.remove("blue-can","orange-can","black-can");
+ if(name==="LUZ")preview.classList.add("blue-can");
+ if(name==="CAZA")preview.classList.add("orange-can");
+ if(name==="NOCHE")preview.classList.add("black-can");
+ preview.querySelector(".can-flavor").textContent=name;
+}
+
+function addToCart(){
+ const item=cart.find(p=>p.flavor===selectedFlavor&&p.format===selectedFormat);
+ if(item)item.qty+=quantity;
+ else cart.push({flavor:selectedFlavor,format:selectedFormat,qty:quantity});
+ updateCart();
+ openCart();
+ quantity=1;
+ document.getElementById("quantity").textContent=1;
+}
+
+function updateCart(){
+ const container=document.getElementById("cart-items");
+ const count=cart.reduce((sum,p)=>sum+p.qty*p.format,0);
+ document.getElementById("cart-count").textContent=count;
+
+ if(cart.length===0){
+  container.innerHTML='<div class="empty">Tu carrito está vacío.</div>';
+ }else{
+  container.innerHTML=cart.map((p,i)=>`
+   <div class="cart-item">
+    <div>
+     <strong>LOBO LOCO SPORT</strong><br>
+     <small>${p.flavor} · ${p.format===1?"1 lata":"Pack "+p.format}</small>
+     <div class="cart-item-controls">
+      <button onclick="changeCartQty(${i},-1)">−</button>
+      <span>${p.qty}</span>
+      <button onclick="changeCartQty(${i},1)">+</button>
+     </div>
+    </div>
+   </div>
+  `).join("");
+ }
+}
+
+function changeCartQty(index,amount){
+ cart[index].qty+=amount;
+ if(cart[index].qty<=0)cart.splice(index,1);
+ updateCart();
+}
+
+function openCart(){
+ document.getElementById("cart").classList.add("active");
+ document.getElementById("overlay").classList.add("active");
+}
+
+function closeCart(){
+ document.getElementById("cart").classList.remove("active");
+ document.getElementById("overlay").classList.remove("active");
+}
+
+function checkout(){
+ if(cart.length===0){
+  alert("Tu carrito está vacío.");
+  return;
+ }
+ alert("¡GRACIAS POR ELEGIR LOBO LOCO! 🐺\n\nEste es un checkout de demostración.");
+}
+
+updateCart();
+</script>
+</body>
+</html>
